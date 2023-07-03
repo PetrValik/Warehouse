@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8" /><!-- ‹really› -->
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>IB111 – Domácí úkol č. 4</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      margin: 8px;
+      padding: 0;
+      background-color: #ddeeff;
+      line-height: 1.25;
+    }
+
+    a {
+      text-decoration: none;
+      color: #0645ad;
+    }
+
+    /* pandoc started wrapping code blocks in <a> tags for some reason... */
+    a.sourceLine, a.sourceLine:hover {
+      text-decoration: none;
+      color: black;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    #content {
+      border: 1px solid #ccccff;
+      padding-left: 1em;
+      padding-right: 1em;
+      background-color: white;
+    }
+
+    #menu ul {
+      list-style-type: none;
+      padding-left: 0;
+      margin: 10px;
+    }
+
+    #menu #logo {
+      margin: 0;
+      font-size: 150%;
+      font-weight: bold;
+      text-align: center;
+      color: navy;
+    }
+
+    #toc-wrapper {
+      padding-top: 1em;
+    }
+
+    #toc {
+      font-size: 80%;
+    }
+
+    #toc-header {
+      color: navy;
+      font-weight: bold;
+    }
+
+    #toc ul {
+      padding-left: 2em;
+      color: navy;
+    }
+
+    h1 {
+      font-size: 175%;
+    }
+
+    h2 {
+      font-weight: normal;
+      border-bottom: 1px solid gray;
+      font-size: 150%;
+    }
+
+    .warning {
+      background-color: #ffdddd;
+      clear: both;
+      margin: 0 1em;
+      padding: 0.5em 1em;
+    }
+
+    @media only screen and (min-width: 700px) {
+      #content {
+        margin-left: 170px;
+      }
+
+      #menu {
+        margin: 0;
+        padding: 0;
+        width: 162px;
+        position: fixed;
+        height: 100%;
+      }
+
+      #menu #logo {
+        font-size: 200%;
+      }
+    }
+
+    @media only screen and (min-width: 500px) {
+      #toc-wrapper {
+        padding: 1em 0 1em 1em;
+        background-color: white;
+        float: right;
+        width: 170px;
+      }
+
+      #toc {
+        border: 1px solid #ccccff;
+        margin-left: 0;
+      }
+
+      #toc-header {
+        background-color: #ccccff;
+        padding: 3px;
+        text-align: center;
+      }
+
+      #toc ul {
+        padding-right: 1em;
+      }
+
+      #toc ul ul {
+        padding-left: 1em;
+        padding-right: 0;
+      }
+
+    }
+
+    @media only screen and (min-width: 550px) and (max-width: 699px) {
+      #menu ul {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      #menu li {
+        display: inline;
+      }
+    }
+
+    /* syntax highlighting -- pygments */
+    table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode, table.sourceCode pre
+    { margin: 0; padding: 0; border: 0; vertical-align: baseline; border: none; }
+    td.lineNumbers { border-right: 1px solid #AAAAAA; text-align: right; color: #AAAAAA; padding-right: 5px; padding-left: 5px; }
+    td.sourceCode { padding-left: 5px; }
+    code.sourceCode span.kw { color: #007020; font-weight: bold; }
+    code.sourceCode span.dt { color: #902000; }
+    code.sourceCode span.dv { color: #40a070; }
+    code.sourceCode span.bn { color: #40a070; }
+    code.sourceCode span.fl { color: #40a070; }
+    code.sourceCode span.ch { color: #4070a0; }
+    code.sourceCode span.st { color: #4070a0; }
+    code.sourceCode span.co { color: #60a0b0; font-style: italic; }
+    code.sourceCode span.ot { color: #007020; }
+    code.sourceCode span.al { color: red; font-weight: bold; }
+    code.sourceCode span.fu { color: #06287e; }
+    code.sourceCode span.re { }
+    code.sourceCode span.er { color: red; font-weight: bold; }
+
+    pre {
+      background: #ffffdd;
+      padding: 0.5em;
+      overflow: auto;
+    }
+
+    .squeeze {
+      line-height: 1;
+    }
+
+    code {
+      white-space: pre;
+      background: #ffffdd;
+      border: 0.3em solid #ffffdd;
+    }
+
+    pre code {
+      border: 0;
+    }
+
+    table {
+      border-collapse: collapse;
+    }
+
+    td, th {
+      border: 1px solid gray;
+      padding: 0.2em 1em;
+    }
+
+    th {
+      background: lightgray;
+    }
+
+    .alert {
+      color: red;
+    }
+
+    figure {
+      display: inline-block;
+      margin: 20px;
+      text-align: center;
+    }
+
+    .nono th, .nono td {
+      width: 1.2em;
+      height: 1.2em;
+      padding: 0;
+      text-align: center;
+      vertical-align: center;
+    }
+
+    .nono .full {
+      background: black;
+    }
+  </style>
+</head>
+<body>
+  <div id="menu"><div id="logo">IB111</div>
+  <ul>
+    <li><a href="https://is.muni.cz/auth/el/fi/podzim2021/IB111/um/">Učební materiály</a></li>
+    <li><a href="https://is.muni.cz/auth/el/fi/podzim2021/IB111/um/hw/info.html">Domácí úkoly</a></li>
+  </ul></div>
+  <div id="content">
+    <div id="toc-wrapper"><div id="toc"><div id="toc-header">Obsah</div>
+      <ul>
+      <li><a href="#představení-úkolu-sklad-zboží">Představení úkolu: Sklad zboží</a></li>
+      <li><a href="#část-první-1-bod-datové-struktury">Část první (1 bod): Datové struktury</a></li>
+      <li><a href="#část-druhá-1-bod-konsistence-skladu">Část druhá (1 bod): Konsistence skladu</a></li>
+      <li><a href="#část-třetí-1-bod-exspirace">Část třetí (1 bod): Exspirace</a></li>
+      <li><a href="#část-čtvrtá-15-bodu-odběr-zboží">Část čtvrtá (1,5 bodu): Odběr zboží</a></li>
+      <li><a href="#část-pátá-15-bodu-informace-o-skladu">Část pátá (1,5 bodu): Informace o skladu</a></li>
+      </ul>
+    </div></div>
+    <h1>Domácí úkol č. 4</h1>
+<p><strong>Zadání:</strong> 5. 11. 2021</p>
+<p><strong>Termíny odevzdání:</strong> (viz kapitolu A ve sbírce)</p>
+<p><strong>Kostra řešení:</strong> <a href="hw4.py">hw4.py</a></p>
+<p><strong>Poznámky k řešení domácího úkolu:</strong></p>
+<ul>
+<li>Čtvrtý domácí úkol se skládá z pěti částí. Bodování jednotlivých částí je uvedeno níže.</li>
+<li>Nezapomeňte si přečíst <a href="info.html">obecné poznámky k domácím úkolům</a>.</li>
+<li>Pište přehledný kód, používejte samopopisná jména proměnných a případné složitější konstrukce opatřete komentářem. <strong>Vyhněte se duplikaci kódu.</strong> Nebojte se přidat si vlastní pomocné funkce / metody!</li>
+<li>Povolené knihovny jsou <code>math</code>, <code>typing</code> a <code>collections</code>.</li>
+<li>Anotujte všechny funkce (i pomocné) tak, aby volání <code>mypy --strict --disallow-any-explicit</code> na vašem kódu prošlo bez problémů. V testech se používá <code>mypy</code> verze 0.903; máte-li nainstalovánu starší verzi a chcete si být jisti výsledkem, můžete ji aktualizovat, nebo použít online nástroj na adrese <a href="https://mypy-play.net/?mypy=latest&amp;python=3.7&amp;flags=strict%2Cdisallow-any-explicit" class="uri">https://mypy-play.net/?mypy=latest&amp;python=3.7&amp;flags=strict%2Cdisallow-any-explicit</a>. Váš kód rovněž nesmí obsahovat anotaci <code class="sourceCode python"><span class="co"># type: ignore</span></code> nebo použití funkce <code>typing.cast</code>.</li>
+</ul>
+<h2 id="představení-úkolu-sklad-zboží">Představení úkolu: Sklad zboží</h2>
+<p>V tomto domácím úkolu si naprogramujeme jednoduchou reprezentaci skladu zboží. Do skladu budou různí dodavatelé dodávat balíky zboží; toto zboží pak budeme prodávat odběratelům (ne nutně po celých balících). Protože různé zboží má různou dobu trvanlivosti (exspirace) a je zájmem společnosti, která sklad provozuje, aby se primárně prodávalo vždy to zboží, které se co nejvíce blíži konci své trvanlivosti, budeme chtít dodržovat následující pravidlo: Balíky zboží budeme ve skladu řadit tak, že největší prioritu má balík, který je nejblíž exspiraci. Mezi balíky se stejnou dobou exspirace pak má prioritu ten balík, který přišel do skladu nejdříve (metoda FIFO). Zboží z balíků se prodává vždy jen podle priority.</p>
+<p>Datum budeme v tomto úkolu pro jednodušení vždy zadávat jako řetězec ve formátu <code>YYYYMMDD</code> dle ISO 8601. Ve všech následujících částech smíte předpokládat, že zadané datum je platné.</p>
+<h2 id="část-první-1-bod-datové-struktury">Část první (1 bod): Datové struktury</h2>
+<p>Třída <code>Package</code> bude reprezentovat balík zboží. Má mít tyto atributy:</p>
+<ul>
+<li><code>amount</code>: množství (počet jednotek) zboží (kladné celé číslo);</li>
+<li><code>price</code>: jednotková cena zboží (kladné celé číslo);</li>
+<li><code>expiry</code>: datum exspirace (řetězec ve formátu <code>YYYYMMDD</code>).</li>
+</ul>
+<p>Vytvořte ve třídě <code>Package</code> metodu <code>__init__</code> tak, aby se její objekty daly vytvářet pomocí <code>Package(amount, price, expiry)</code>.</p>
+<p>Třída <code>Movement</code> bude reprezentovat pohyb zboží do nebo ze skladu. Má mít tyto atributy:</p>
+<ul>
+<li><code>item</code>: druh zboží (neprázdný řetězec),</li>
+<li><code>amount</code>: množství (počej jednotek) zboží – kladné celé číslo označuje dodání zboží do skladu, záporné celé číslo označuje odběr ze skladu;</li>
+<li><code>price</code>: jednotková cena zboží (kladné celé číslo);</li>
+<li><code>tag</code>: řetězec označující dodavatele nebo odběratele nebo <code>"EXPIRED"</code>.</li>
+</ul>
+<p>Vytvořte ve třídě <code>Movement</code> metodu <code>__init__</code> tak, aby se její objekty daly vytvářet pomocí <code>Movement(item, amount, price, tag)</code>.</p>
+<p>Třída <code>Warehouse</code> reprezentuje samotný sklad. Má mít tyto atributy:</p>
+<ul>
+<li><code>inventory</code>: aktuální obsah skladu – slovník, který každému druhu zboží přiřazuje seznam balíků tohoto druhu ve skladu;</li>
+<li><code>history</code>: historie pohybů (seznam).</li>
+</ul>
+<p>Seznamy ve slovníku <code>inventory</code> chceme udržovat seřazené tak, aby balíky s nejvyšší prioritou (dle popisu výše) byly na konci seznamu. Toto uspořádání zaručí, že se při prodeji budou vždy nejprve odebírat balíky z konce seznamu.</p>
+<p>Vytvořte ve třídě <code>Warehouse</code> metodu <code>__init__</code> tak, aby se její objekty daly vytvářet pomocí <code>Warehouse()</code>, přičemž vytvořený objekt bude mít prázdný slovník <code>inventory</code> a prázdný seznam <code>history</code>.</p>
+<p>Kromě požadovaných atributů, metody <code>__init__</code> a metod popsaných níže si můžete do tříd přidat libovolné pomocné atributy nebo metody. Počítejte ovšem s tím, že atributy <code>inventory</code> a <code>history</code> budeme chtít v testech modifikovat přímo.</p>
+<p>Dále ve třídě <code>Warehouse</code> implementujte metodu <code>store</code> s parametry <code>(item, amount, price, expiry, tag)</code>, která do skladu přidá balík zboží druhu <code>item</code> se zadaným množstvím, jednotkovou cenou a dobou exspirace. Informaci o tomto pohybu rovněž zaznamenejte na konec seznamu <code>history</code>, přičemž použijte označení dodavatele <code>tag</code>.</p>
+<p>V kostře řešení máte připravenou proceduru <code>print_warehouse</code>, která přehledným způsobem vypíše obsah skladu i historii všech pohybů. Pokud máte tuto část implementovanou správně, výstup pro ukázkový sklad (z funkce <code>example_warehouse</code>) by měl vypadat takto:</p>
+<pre><code>===== INVENTORY =====
+* Item: rice
+    amount  price  expiration date
+  ---------------------------------
+      200    158     20771023
+       90     14     20220202
+      100     17     20220202
+       42      9     20211111
+
+* Item: corn
+    amount  price  expiration date
+  ---------------------------------
+       70     15     20220315
+
+* Item: peas
+    amount  price  expiration date
+  ---------------------------------
+     9774      1     20220921
+       64      7     20211101
+
+===== HISTORY ======
+    item     amount  price   tag
+-------------------------------------------
+    rice        100     17   ACME Rice Ltd.
+    corn         70     15   UniCORN &amp; co.
+    rice        200    158   RICE Unlimited
+    peas       9774      1   G. P. a C.
+    rice         90     14   Theorem&#39;s Rice
+    peas         64      7   Discount Peas
+    rice         42      9   ACME Rice Ltd.</code></pre>
+<h2 id="část-druhá-1-bod-konsistence-skladu">Část druhá (1 bod): Konsistence skladu</h2>
+<p>Ve třídě <code>Warehouse</code> implementuje čistou metodu <code>find_inconsistencies</code> bez parametrů, která zjistí, zda je aktuální obsah skladu konsistentní s historií pohybů. Přitom nás zajímá pouze konsistence dle množství a ceny zboží, tj. nestaráme se zde o korektnost pořadí balíků. Nalezené nekonsistence vrátí jako množinu trojic (druh zboží, jednotková cena, chybějící nebo přebývající množství), kde chybějící množství reprezentujeme záporným a přebývající množství kladným číslem.</p>
+<p><em>Poznámka:</em> Toto je jediná část, při jejímž testování budeme modifikovat <code>inventory</code> a <code>history</code> tak, aby nebyly konsistentní. V ostatních částech můžete vždy na vstupu předpokládat konsistentní stav skladu.</p>
+<p><strong>Příklad:</strong> Ukázkový sklad výše je konsistentní, proto na něm tato metoda vrátí prázdnou množinu. Kdybychom v inventáři změnili u balíku s hrachem číslo <code>9774</code> na <code>9773</code> a navíc bychom v historii pohybů změnili cenu u dodávky firmy <code>Theorem's Rice</code> na <code>12</code>, metoda by vrátila množinu <code class="sourceCode python">{(<span class="st">&#39;peas&#39;</span>, <span class="dv">1</span>, <span class="op">-</span><span class="dv">1</span>), (<span class="st">&#39;rice&#39;</span>, <span class="dv">14</span>, <span class="dv">90</span>), (<span class="st">&#39;rice&#39;</span>, <span class="dv">12</span>, <span class="op">-</span><span class="dv">90</span>)}</code>.</p>
+<h2 id="část-třetí-1-bod-exspirace">Část třetí (1 bod): Exspirace</h2>
+<p>Ve třídě <code>Warehouse</code> implementuje metodu <code>remove_expired</code> s parametrem <code>today</code> (řetězec označující datum ve formátu <code>YYYYMMDD</code>), která ze skladu odstraní všechny exspirované balíky zboží a vrátí jejich seznam. Odstranění balíků zaznamená do historie pohybů s označením <code>"EXPIRED"</code>. Na pořadí balíků ve vráceném seznamu a na pořadí nově přidaných pohybů do historie nezáleží.</p>
+<p><em>Poznámka:</em> Balík považujeme za exspirovaný, pokud jeho datum exspirace předchází dnešnímu datu.</p>
+<p><strong>Příklad:</strong> Pokud s ukázkovým skladem výše provedeme <code>remove_expired</code> s parametrem <code>'20211111'</code>, pak se ze skladu odstraní balík hrachu s množstvím <code>64</code> a cenou <code>7</code>; na konec historie pohybů se přidá položka <code class="sourceCode python">Movement(<span class="st">&#39;peas&#39;</span>, <span class="op">-</span><span class="dv">64</span>, <span class="dv">7</span>, <span class="st">&#39;EXPIRED&#39;</span>)</code>.</p>
+<h2 id="část-čtvrtá-15-bodu-odběr-zboží">Část čtvrtá (1,5 bodu): Odběr zboží</h2>
+<p>Ve třídě <code>Warehouse</code> implementujte metodu <code>try_sell</code> s parametry <code>(item, amount, price, tag)</code>, která uskuteční prodej co největšího množství zboží druhu <code>item</code>. Je ovšem limitována maximálním množstvím <code>amount</code> (kladné celé číslo) a maximální průměrnou jednotkovou cenou <code>price</code> (kladné celé číslo). Balíky, které byly prodány vcelku, odstraňte z odpovídajícího seznamu ve slovníku <code>inventory</code>. Pokud byla z některého balíku prodána jen část zboží, modifikujte jeho atribut <code>amount</code> (nevytvářejte nový balík). Všechny provedené prodeje zaznamenejte do historie pohybů, a to přesně v tom pořadí, v jakém k prodejům došlo. Použijte přitom označení odběratele <code>tag</code>. Metoda vrátí dvojici (celkový počet prodaných jednotek zboží, celková cena).</p>
+<p><em>Poznámka:</em> Nezapomeňte, že ze skladu musí zboží odcházet v pevně daném pořadí – není možno prodat zboží z balíku, aniž by předtím byly prodány všechny balíky stejného druhu zboží s vyšší prioritou.</p>
+<p><strong>Příklad:</strong> Uvažujme opět ukázkový sklad výše. Graficky si zde naznačíme pořadí balíků s rýží (balík nejvíce vpravo má nejvyšší prioritu, horní číslo je množství, spodní cena), přičemž si balíky označíme písmeny, ať o nich můžeme dále hovořit.</p>
+<pre class="squeeze"><code>╭─────╮  ╭─────╮  ╭─────╮  ╭─────╮
+│ 200 │  │  90 │  │ 100 │  │  42 │
+├─────┤  ├─────┤  ├─────┤  ├─────┤
+│ 158 │  │  14 │  │  17 │  │  9  │
+╰─────╯  ╰─────╯  ╰─────╯  ╰─────╯
+   D        C        B        A</code></pre>
+<ul>
+<li>Pokud by přišel požadavek na rýži s maximálním množstvím <code>500</code> a maximální průměrnou cenou <code>9</code>, pak se prodá pouze celý balík <code>A</code>. (Ostatní balíky jsou nad naše cenové možnosti.)</li>
+<li>Pokud by místo toho byla požadovaná maximální průměrná cena <code>12</code>, pak se prodá celý balík <code>A</code> a <code>25</code> jednotek rýže z balíku <code>B</code>.</li>
+<li>Pokud by byla požadovaná maximální průměrná cena <code>14</code>, pak se prodá celý balík <code>A</code> a <code>70</code> jednotek rýže z balíku <code>B</code>.</li>
+<li>Pokud by byla požadovaná maximální průměrná cena <code>15</code>, pak se prodají celé balíky <code>A</code>, <code>B</code> a <code>C</code>.</li>
+<li>Pokud by byla požadovaná maximální průměrná cena <code>16</code>, pak se prodají celé balíky <code>A</code>, <code>B</code>, <code>C</code> a dvě jednotky rýže z balíku <code>D</code>.</li>
+<li>Konečně pro maximální průměrnou cenu <code>81</code> se prodají všechny balíky.</li>
+</ul>
+<p>Výsledný stav skladu pro případ s průměrnou cenou <code>16</code> bude vypadat takto (<code>"Pear Shop"</code> je označení odběratele):</p>
+<pre><code>===== INVENTORY =====
+* Item: rice
+    amount  price  expiration date
+  ---------------------------------
+      198    158     20771023
+
+* Item: corn
+    amount  price  expiration date
+  ---------------------------------
+       70     15     20220315
+
+* Item: peas
+    amount  price  expiration date
+  ---------------------------------
+     9774      1     20220921
+       64      7     20211101
+
+===== HISTORY ======
+    item     amount  price   tag
+-------------------------------------------
+    rice        100     17   ACME Rice Ltd.
+    corn         70     15   UniCORN &amp; co.
+    rice        200    158   RICE Unlimited
+    peas       9774      1   G. P. a C.
+    rice         90     14   Theorem&#39;s Rice
+    peas         64      7   Discount Peas
+    rice         42      9   ACME Rice Ltd.
+    rice        -42      9   Pear Shop
+    rice       -100     17   Pear Shop
+    rice        -90     14   Pear Shop
+    rice         -2    158   Pear Shop</code></pre>
+<h2 id="část-pátá-15-bodu-informace-o-skladu">Část pátá (1,5 bodu): Informace o skladu</h2>
+<p>Ve třídě <code>Warehouse</code> implementujte čistou metodu <code>average_prices</code> bez parametrů, která vrátí slovník, jehož klíči budou druhy zboží a hodnotami průměrné ceny daného zboží spočítané z balíků, které jsou aktuálně na skladě. Průměrné ceny budou typu <code>float</code>, pro jejich testování je tedy vhodné použít funkci <code>math.isclose</code>.</p>
+<p>Dále pak implementuje čistou metodu <code>best_suppliers</code> bez parametrů, která vrátí množinu všech dodavatelů, kteří dodali nejvíce jednotek zboží libovolného druhu. Počítáme všechny dodávky za celou historii skladu. Pokud u nějakého druhu zboží existuje více dodavatelů, kteří dodali největší množství, zahrňte do výsledné množiny všechny z nich.</p>
+  </div>
+</body>
+</html>
